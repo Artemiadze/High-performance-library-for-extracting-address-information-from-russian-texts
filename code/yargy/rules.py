@@ -20,6 +20,7 @@ from yargy.predicates import (
 )
 
 AddrPart = fact("AddrPart", ["value"])
+Address = fact("Address", ["part"])
 Index = fact("Index", ["value"])
 Strana = fact("Strana", ["name", "type"])
 Oblast = fact("Oblast", ["name", "type"])
@@ -1856,4 +1857,4 @@ ADDR_PART = or_(
     ABONENT_BOX,
 )
 
-ADDR = ADDR_PART
+ADDR = ADDR_PART.interpretation(Address.part).interpretation(Address)
