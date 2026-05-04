@@ -11,7 +11,7 @@ fn main() {
     let registry: &'static RuleRegistry<'static> = Box::leak(Box::new(registry));
     let parser = Parser::new(registry, addr_id);
 
-    let text = "Россия, обл. Курская, р-н Золотухинский, рп Золотухино, ул. Куйбышева, д. 42";
+    let text = "Россия, обл. Курская, р-н Золотухинский, рп Золотухино, ул. Куйбышева, дом 42";
     for m in parser.findall(text) {
         if let Some(fact) = m.fact(registry) {
             println!("{}", fact);
