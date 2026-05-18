@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-yargy-core = { path = "/home/stewie/Work/yargy-rs" }
+renert = "0.1.0"

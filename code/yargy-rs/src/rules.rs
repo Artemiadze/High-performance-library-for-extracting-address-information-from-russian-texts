@@ -1,34 +1,11 @@
-//! Правила Yargy для разбора русских адресов.
-//!
-//! Этот модуль определяет грамматические правила для извлечения компонентов адреса:
-//! города, улицы, здания, квартиры и т.д.
-//!
-//! # Пример
-//!
-//! ```rust,no_run
-//! use crate::rules::build_address_rules;
-//! use yargy_core::parser::Parser;
-//!
-//! fn main() {
-//!     // После yargy_core::init(...)
-//!     let (registry, addr_id) = build_address_rules();
-//!     let parser = Parser::new(&registry, addr_id);
-//!     for m in parser.findall("г. Москва, ул. Ленина, д. 5, кв. 12") {
-//!         if let Some(fact) = m.fact(&registry) {
-//!             println!("{}", fact);
-//!         }
-//!     }
-//! }
-//! ```
-
-use yargy_core::fact;
-use yargy_core::predicates::constructors::{
+use renert::fact;
+use renert::predicates::constructors::{
     and, caseless, dictionary, gram, in_caseless, is_title, is_token_type, normalized,
     or as pred_or,
 };
-use yargy_core::interpretation::RuleInterpretation;
-use yargy_core::{or_, pred, rule, term, RuleBuilder, RuleId};
-use yargy_core::RuleRegistry;
+use renert::interpretation::RuleInterpretation;
+use renert::{or_, pred, rule, term, RuleBuilder, RuleId};
+use renert::RuleRegistry;
 
 // ---------------------------------------------------------------------------
 // Факты
@@ -66,7 +43,7 @@ fact!(pub AbonentBox => [number, kind]);
 
 /// Строит грамматику адресов и возвращает (`RuleRegistry`, `RuleId` корня).
 ///
-/// Функция должна вызываться после [`yargy_core::init`].
+/// Функция должна вызываться после [`renert::init`].
 // Ряд промежуточных переменных намеренно не используется в addr_part
 // (аналогично исходному Python-коду), поэтому предупреждения подавлены.
 #[allow(unused_variables)]

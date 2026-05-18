@@ -559,6 +559,23 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dc897dd8d9e8bd1ed8cdad82b5966c3e0ecae09fb1907d58efaa013543185d0a"
 
 [[package]]
+name = "renert"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "00deff52200e3befa465eedd75d3ec606c203ed5d71157707338d0d001922278"
+dependencies = [
+ "lazy_static",
+ "lru",
+ "morph-rs",
+ "once_cell",
+ "parking_lot",
+ "regex",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.18",
+]
+
+[[package]]
 name = "rustix"
 version = "1.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -665,7 +682,7 @@ dependencies = [
 name = "src"
 version = "0.1.0"
 dependencies = [
- "yargy-core",
+ "renert",
 ]
 
 [[package]]
@@ -1040,21 +1057,6 @@ dependencies = [
  "serde_json",
  "unicode-xid",
  "wasmparser",
-]
-
-[[package]]
-name = "yargy-core"
-version = "0.1.0"
-dependencies = [
- "lazy_static",
- "lru",
- "morph-rs",
- "once_cell",
- "parking_lot",
- "regex",
- "serde",
- "serde_json",
- "thiserror 2.0.18",
 ]
 
 [[package]]
